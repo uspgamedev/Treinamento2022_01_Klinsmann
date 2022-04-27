@@ -30,4 +30,13 @@ public class Player_Health : MonoBehaviour
 
         healthbar.SetHealth(currentHealth);
     }
+    private void OnCollisionEnter2D (Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage(collision.gameObject.GetComponent<EnemyBehavior>().damage);
+        }
+  }
 }
+
+
