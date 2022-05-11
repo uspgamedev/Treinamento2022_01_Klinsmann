@@ -7,6 +7,8 @@ public class Player_Health : MonoBehaviour
     public int maxHealth = 10;
     public int currentHealth;
 
+    public AudioSource player_taking_damage;
+
     public Healthbar healthbar;
 
     // Start is called before the first frame update
@@ -35,8 +37,10 @@ public class Player_Health : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             TakeDamage(collision.gameObject.GetComponent<EnemyBehavior>().damage);
+            player_taking_damage.Play ();
         }
-  }
+    }
+     
 }
 
 
