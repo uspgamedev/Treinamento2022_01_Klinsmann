@@ -15,9 +15,10 @@ public class RandomSpawner : MonoBehaviour
 
     void SpawnRandomEnemy()
     {
-        Vector2 randomPos = Random.insideUnitCircle * radius;
+        Vector3 randomPos = Random.insideUnitCircle * radius;
 
-        Instantiate(enemyPrefab, randomPos, Quaternion.identity);
+        Instantiate(enemyPrefab, this.transform.position + randomPos, Quaternion.identity);
+        Debug.Log("Randompos: " + randomPos);
     }
     private void OnDrawGizmos()
     {
