@@ -13,7 +13,7 @@ public class RandomSpawner : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)) SpawnRandomEnemy();   
     }
 
-    void SpawnRandomEnemy()
+    public void SpawnRandomEnemy()
     {
         Vector3 randomPos = Random.insideUnitCircle * radius;
 
