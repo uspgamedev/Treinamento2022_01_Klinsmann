@@ -8,10 +8,6 @@ public class RandomSpawner : MonoBehaviour
     public GameObject enemyPrefab;
 
     
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space)) SpawnRandomEnemy();   
-    }
 
     public void SpawnRandomEnemy()
     {

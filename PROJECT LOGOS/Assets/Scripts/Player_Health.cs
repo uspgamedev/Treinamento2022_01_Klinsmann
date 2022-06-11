@@ -8,7 +8,7 @@ public class Player_Health : MonoBehaviour
     public int currentHealth;
 
     public AudioSource player_taking_damage;
-
+    public GameManager gameManager;
     public Healthbar healthbar;
 
     // Start is called before the first frame update
@@ -23,6 +23,10 @@ public class Player_Health : MonoBehaviour
         currentHealth -= damage;
 
         healthbar.SetHealth(currentHealth);
+        if (currentHealth <= 0)
+        {
+            gameManager.GameOver();
+        }
     }
     private void OnCollisionEnter2D (Collision2D collision)
     {
@@ -32,7 +36,7 @@ public class Player_Health : MonoBehaviour
             player_taking_damage.Play ();
         }
     }
-     
+
 }
 
 
