@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6851363485741126626}
   - component: {fileID: 6851363485741126627}
   - component: {fileID: 6851363485741126624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,8 @@ GameObject:
   - component: {fileID: 6851363486439066351}
   - component: {fileID: 6851363486439066348}
   - component: {fileID: 820224958638622222}
-  m_Layer: 0
+  - component: {fileID: 101786778560393087}
+  m_Layer: 6
   m_Name: shadow_enemyGFX
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -288,3 +289,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &101786778560393087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851363486439066338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b187fee66bc9fac4a9e44d336260ee41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMaxHealth: 3
