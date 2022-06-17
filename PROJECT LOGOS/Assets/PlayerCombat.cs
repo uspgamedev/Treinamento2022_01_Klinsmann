@@ -5,16 +5,23 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint;
-    public float attackRange = 0.5f;
     public LayerMask enemyLayers;
-
-    // Update is called once per frame
+    public float attackRange = 0.5f;
+    public int attackDamage = 1;
+    
+    public float attackRate = 1.5f;
+    float nextAttackTime = 0;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Time.time >= nextAttackTime)
         {
-            Attack();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f/attackRate;
+            }   
         }
+        
     }
 
     void Attack()
@@ -27,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
         //causar dano
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("ACERTAMO" + enemy.name);
+            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
         }
     }
 
