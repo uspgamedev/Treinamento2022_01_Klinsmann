@@ -8,10 +8,13 @@ public class Player_movement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     Vector2 movement; 
+    public Transform rotateAtk;
+    Vector3 rotate;
 
     void Start()
     {
         this.enabled = true;
+        rotate = rotateAtk.rotation.eulerAngles;
     }
     void Update()
     {
@@ -24,6 +27,27 @@ public class Player_movement : MonoBehaviour
 
     }
     void FixedUpdate() {
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);   
+        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime); 
+
+        if (movement.x > 0.1f)
+        {
+            rotate.z = 90f;
+            rotateAtk.rotation = Quaternion.Euler(rotate);
+        }
+        if (movement.x < -0.1f)
+        {
+            rotate.z = -90f;
+            rotateAtk.rotation = Quaternion.Euler(rotate);
+        }
+        if (movement.y > 0.1f)
+        {
+            rotate.z = 180f;
+            rotateAtk.rotation = Quaternion.Euler(rotate);
+        }
+        if (movement.y < -0.1f || (movement.x == 0f && movement.y == 0f))
+        {
+            rotate.z = 0f;
+            rotateAtk.rotation = Quaternion.Euler(rotate);
+        }
     } 
 }

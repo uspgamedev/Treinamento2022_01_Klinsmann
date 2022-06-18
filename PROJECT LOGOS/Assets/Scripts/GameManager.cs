@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {   
     public GameObject gameOverMenu;
     public Player_movement player_movement;
+    public GameWin gameWin;
 
     void Start ()
     {

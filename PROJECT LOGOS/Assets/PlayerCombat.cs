@@ -25,6 +25,7 @@ public class PlayerCombat : MonoBehaviour
             }   
         }
         
+
     }
 
     void Attack()
@@ -39,6 +40,7 @@ public class PlayerCombat : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+            FindObjectOfType<AudioManager>().Play("sword_sfx");
 
         }
     }
